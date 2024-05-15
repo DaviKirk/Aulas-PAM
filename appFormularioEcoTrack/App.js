@@ -1,6 +1,6 @@
 
 import react, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image ,} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, } from 'react-native';
 
 import { Picker } from '@react-native-picker/picker';
 import Slider from '@react-native-community/slider';
@@ -25,10 +25,28 @@ export default function App() {
     { modeloNome: 'Ilha comprida', valor: 4 }
   ]
 
+  function enviarDados() {
+    if (nome == '' || CPF == '' || enreco == '' || modelo == '') {
+      alert('preencha todos os campos corretamente');
+    }
+    else {
+      alert('informações da conta/passeio \n\n' +
+        'Nome:' + nome + '\n' +
+        'CPF: ' + CPF + '\n' +
+        'Endereço ' + enreco + '\n' +
+        'Preferencia: ' + checked + '\n' +
+        'Valor: ' + valorViagem.toFixed(0) + 'R$ \n' +
+        'Destino de interesse: ' + modelos[modelo].modeloNome
+
+      )
+    }
+  }
+
   let modeloItems = modelos.map((v, k) => {
     return <Picker.Item key={k} value={k} label={v.modeloNome}></Picker.Item>
 
   })
+
 
   return (
     <LinearGradient
@@ -64,7 +82,7 @@ export default function App() {
         >
         </Slider>
       </View>
-      <Text style={styles.textoRadio} >suas preferencias:</Text>
+      <Text style={styles.textoRadio} >sua preferencia:</Text>
       <View style={styles.areaRadio}>
 
         <RadioButton
@@ -117,9 +135,15 @@ export default function App() {
         </TextInput>
       </View>
       <Image
-      source={require('./assets/background.png')}
-      style={styles.backgroundMontanha}
+        source={require('./assets/background.png')}
+        style={styles.backgroundMontanha}
       />
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={enviarDados}
+      >
+        <Text style={styles.TextBotao}>Enviar</Text>
+      </TouchableOpacity>
     </LinearGradient>
   );
 }
@@ -130,6 +154,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  botao: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: "#000",
+    width: '25%',
+    alignSelf: "center",
+    height: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    marginBottom: 30,
+    right: 110,
+    zIndex: 2,
   },
   sol: {
     backgroundColor: '#fff',
@@ -189,15 +227,21 @@ const styles = StyleSheet.create({
     marginTop: 15,
     zIndex: 2,
   },
+  TextBotao: {
+    fontSize: 17,
+    color: '#000',
+    zIndex: 2,
+  },
   areaRadio: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 30,
+
   },
   textoRadio: {
     fontSize: 17,
     color: '#000',
-    right: 98,
+    right: 110,
 
   },
   backgroundMontanha: {
@@ -209,5 +253,5 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: '#000',
     right: 98,
-  }
+  },
 });
