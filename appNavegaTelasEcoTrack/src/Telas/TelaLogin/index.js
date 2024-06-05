@@ -28,11 +28,11 @@ export default function Tela1({ navigation }) {
         ></TextInput>
       </View>
       <View style={styles.viewLogin}>
-        <Text style={styles.Textologin}>ja possuo conta:</Text>
+        <Text style={styles.Textologin}>Não possuo conta:</Text>
         <TouchableOpacity
-          onPress={() => { navigation.navigate("TelaLogin") }}
+          onPress={() => { navigation.navigate("TelaCadastro") }}
         >
-          <Text style={styles.Textologinbotao}>logar</Text>
+          <Text style={styles.Textologinbotao}>Cadastrar</Text>
         </TouchableOpacity>
       </View>
       <View>
@@ -40,7 +40,7 @@ export default function Tela1({ navigation }) {
           style={styles.botao}
           onPress={() => { navigation.navigate("Home") }}
         >
-          <Text style={styles.TextBotao}>Enviar</Text>
+          <Text style={styles.TextBotao}>Logar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -113,6 +113,6 @@ const styles = StyleSheet.create({
   },
   viewLogin: {
     flexDirection: 'row',
-    marginRight: 180
+    marginRight: 135
   },
 });

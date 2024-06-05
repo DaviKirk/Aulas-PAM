@@ -53,7 +53,7 @@ export default function Tela1({ navigation }) {
           style={styles.botao}
           onPress={() => { navigation.navigate("Home") }}
         >
-          <Text style={styles.TextBotao}>Enviar</Text>
+          <Text style={styles.TextBotao}>Cadastrar</Text>
         </TouchableOpacity>
       </View>
     </View>
