@@ -40,10 +40,18 @@ export default function Tela1({ navigation }) {
           secureTextEntry={true}
         ></TextInput>
       </View>
+      <View style={styles.viewLogin}>
+        <Text style={styles.Textologin}>ja possuo conta:</Text>
+        <TouchableOpacity
+        onPress={() => { navigation.navigate("TelaLogin") }}
+        >
+          <Text style={styles.Textologinbotao}>logar</Text>
+        </TouchableOpacity>
+      </View>
       <View>
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => {navigation.navigate("Home")}}
+          onPress={() => { navigation.navigate("Home") }}
         >
           <Text style={styles.TextBotao}>Enviar</Text>
         </TouchableOpacity>
@@ -103,7 +111,20 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 20,
     fontWeight: 'bold',
-
   },
-
+  Textologin: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  Textologinbotao: {
+    color: '#FFD600',
+    fontWeight: 'bold',
+    fontSize: 15,
+    marginLeft: 4
+  },
+  viewLogin: {
+    flexDirection: 'row',
+    marginRight: 180
+  },
 });

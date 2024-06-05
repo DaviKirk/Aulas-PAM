@@ -19,7 +19,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='TelaCadastro'>
 
-        <Stack.Screen name="TelaLogin" component={TelaLogin}></Stack.Screen>
+        <Stack.Screen name="TelaLogin" component={TelaLogin} options={{ headerShown: false }}></Stack.Screen>
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}></Stack.Screen>
         <Stack.Screen name="settings" component={TelaConfig}></Stack.Screen>
         <Stack.Screen name="TelaCadastro" component={TelaCadastro} options={{ headerShown: false }}>
